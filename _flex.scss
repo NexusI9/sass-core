@@ -1,0 +1,84 @@
+.flex {
+    display: flex;
+
+    &.f-row {
+        flex-direction: row;
+    }
+
+    &.f-col {
+        flex-direction: column;
+    }
+
+
+
+    &.f-center {
+        align-items: center;
+        justify-content: center;
+
+        &-h {
+            align-items: center;
+        }
+
+        &-w {
+            justify-content: center;
+        }
+    }
+
+    &.f-wrap {
+        flex-wrap: wrap;
+    }
+
+    &.f-end {
+        justify-content: end;
+    }
+
+    &.f-start {
+        justify-content: start;
+    }
+
+    &.f-between {
+        justify-content: space-between;
+    }
+
+    &.f-around {
+        justify-content: space-around;
+    }
+
+    &.gap {
+        &-xs {
+            gap: var(--unit-xs);
+        }
+
+        &-s {
+            gap: var(--unit-s);
+        }
+
+        &-m {
+            gap: var(--unit-m);
+        }
+
+        &-l {
+            gap: var(--unit-l);
+        }
+
+        &-xl {
+            gap: var(--unit-xl);
+        }
+
+        &-2xl {
+            gap: var(--unit-2xl);
+        }
+
+        &-3xl {
+            gap: var(--unit-3xl);
+        }
+
+        &-5xl {
+            gap: var(--unit-5xl);
+        }
+
+        &-6xl {
+            gap: var(--unit-6xl);
+        }
+    }
+}
