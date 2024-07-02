@@ -1,16 +1,38 @@
-.color{
+.color {
 
-    $colorScale: (0,50,100,200,300,400,500,600,700,800,900,950);
-    $colorName: ("primary","base","secondary");
+    $colorScale: (
+        0,
+        50,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        950
+    );
 
-    @each $name in $colorName{
-        @each $scale in $colorScale{
-            &-#{$name}-#{$scale}{
-                &, & > *{
-                    color: var(--#{$name}-#{$scale});
-                }
+$colorName: (
+    "primary",
+    "base",
+    "secondary"
+);
+$colorProperty: (
+    "bg":background-color,
+    "text":color,
+    "border":border-color
+);
+
+@each $pptName, $pptAttr in $colorProperty {
+    @each $name in $colorName {
+        @each $scale in $colorScale {
+            &-#{$pptName}-#{$name}-#{$scale} {
+                #{$pptAttr}: var(--#{$name}-#{$scale});
             }
         }
     }
-
+}
 }
