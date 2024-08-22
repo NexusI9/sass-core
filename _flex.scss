@@ -1,3 +1,19 @@
+
+$units: (
+    "xs",
+    "s",
+    "m",
+    "l",
+    "xl",
+    "2xl",
+    "3xl",
+    "4xl",
+    "5xl",
+    "6xl",
+    "7xl",
+)!default;
+
+
 .flex {
     display: flex;
 
@@ -45,40 +61,11 @@
     }
 
     &.gap {
-        &-xs {
-            gap: var(--unit-xs);
-        }
 
-        &-s {
-            gap: var(--unit-s);
-        }
-
-        &-m {
-            gap: var(--unit-m);
-        }
-
-        &-l {
-            gap: var(--unit-l);
-        }
-
-        &-xl {
-            gap: var(--unit-xl);
-        }
-
-        &-2xl {
-            gap: var(--unit-2xl);
-        }
-
-        &-3xl {
-            gap: var(--unit-3xl);
-        }
-
-        &-5xl {
-            gap: var(--unit-5xl);
-        }
-
-        &-6xl {
-            gap: var(--unit-6xl);
+        @each $unit in $units {
+            &-#{$unit} {
+                gap: var(--unit-#{$unit});
+            }
         }
     }
 }

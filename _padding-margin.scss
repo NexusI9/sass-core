@@ -1,19 +1,6 @@
+$spaceVarName: "unit" !default;
 
-$spaceVarName: "unit";
-
-$properties:("padding", "margin");
-
-$paddingDirections: (
-    "top",
-    "bottom",
-    "left",
-    "right",
-    "all",
-    "v",
-    "h"
-);
-
-$paddingSpaces: (
+$units: (
     "xs",
     "s",
     "m",
@@ -25,33 +12,48 @@ $paddingSpaces: (
     "5xl",
     "6xl",
     "7xl",
+    ) !default;
+
+$properties: (
+    "padding",
+    "margin"
 );
 
-@each $prt in $properties{
+$directions: (
+    "top",
+    "bottom",
+    "left",
+    "right",
+    "all",
+    "v",
+    "h"
+);
+
+@each $prt in $properties {
     .#{$prt} {
-        @each $direction in $paddingDirections {
+        @each $direction in $directions {
             &-#{$direction} {
-                @each $space in $paddingSpaces {
+                @each $space in $units {
                     &-#{$space} {
-    
+
                         @if($direction =="") {
                             #{$prt}: var(--#{$spaceVarName}-#{$space});
                         }
-    
+
                         @else if($direction =="v") {
                             #{$prt}-top: var(--#{$spaceVarName}-#{$space});
                             #{$prt}-bottom: var(--#{$spaceVarName}-#{$space});
                         }
-    
+
                         @else if($direction =="h") {
                             #{$prt}-left: var(--#{$spaceVarName}-#{$space});
                             #{$prt}-right: var(--#{$spaceVarName}-#{$space});
                         }
-    
+
                         @else {
                             #{$prt}-#{$direction}: var(--#{$spaceVarName}-#{$space});
                         }
-    
+
                     }
                 }
             }
