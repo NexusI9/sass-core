@@ -24,23 +24,23 @@ $directions: (
     "bottom",
     "left",
     "right",
-    "all",
     "v",
     "h"
 );
 
 @each $prt in $properties {
     .#{$prt} {
+        
+        //set all directions
+        #{$prt}: var(--#{$spaceVarName}-#{$space});
+
+        //set specific directions
         @each $direction in $directions {
             &-#{$direction} {
                 @each $space in $units {
                     &-#{$space} {
 
-                        @if($direction =="") {
-                            #{$prt}: var(--#{$spaceVarName}-#{$space});
-                        }
-
-                        @else if($direction =="v") {
+                        @if($direction =="v") {
                             #{$prt}-top: var(--#{$spaceVarName}-#{$space});
                             #{$prt}-bottom: var(--#{$spaceVarName}-#{$space});
                         }
