@@ -1,0 +1,13 @@
+@use '../index.scss' as global;
+
+:root{
+	@each $name, $value in global.$units{
+		--#{global.$unitName}-#{global.$value}: 
+	}
+
+	--container-width: global.$containerWidth;
+	--container-padding: global.$containerPadding;
+
+	--tb-breakpoint:global.$tabletBreakpoint;
+	--mb-breakpoint:global.$mobileBreakpoint;
+}

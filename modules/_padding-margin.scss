@@ -1,0 +1,50 @@
+@use '../index.scss' as global;
+
+$properties: (
+    "padding",
+    "margin"
+);
+
+$directions: (
+    "top",
+    "bottom",
+    "left",
+    "right",
+    "v",
+    "h"
+);
+
+@each $prt in $properties {
+    .#{$prt} {
+        @each $name, $value in global.$units {
+
+            //set all directions
+            &-#{$name} {
+                #{$prt}: var(--#{global.$unitName}-#{$name});
+            }
+
+            //set specific directions
+            @each $direction in $directions {
+                &-#{$direction} {
+                    &-#{$name} {
+
+                        @if($direction =="v") {
+                            #{$prt}-top: var(--#{global.$unitName}-#{$name});
+                            #{$prt}-bottom: var(--#{global.$unitName}-#{$name});
+                        }
+
+                        @else if($direction =="h") {
+                            #{$prt}-left: var(--#{global.$unitName}-#{$name});
+                            #{$prt}-right: var(--#{global.$unitName}-#{$name});
+                        }
+
+                        @else {
+                            #{$prt}-#{$direction}: var(--#{global.$unitName}-#{$name});
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

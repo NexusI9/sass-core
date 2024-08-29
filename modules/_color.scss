@@ -1,35 +1,16 @@
-$colorScale: (
-    0,
-    50,
-    100,
-    200,
-    300,
-    400,
-    500,
-    600,
-    700,
-    800,
-    900,
-    950
-) !default;
-
-$colorName: (
-"primary",
-"base",
-"secondary"
-) !default;
+@use '../index.scss' as global;
 
 $colorProperty: (
 "bg":background-color,
 "text":color,
 "border":border-color
-)!default;
+);
 
 .color {
 
 @each $pptName, $pptAttr in $colorProperty {
-    @each $name in $colorName {
-        @each $scale in $colorScale {
+    @each $name in global.$colorName {
+        @each $scale in global.$colorScale {
             &-#{$pptName}-#{$name}-#{$scale} {
                 #{$pptAttr}: var(--#{$name}-#{$scale});
             }
