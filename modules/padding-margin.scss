@@ -15,6 +15,7 @@ $directions: (
 );
 
 @each $prt in $properties {
+
     .#{$prt} {
         @each $name, $value in global.$units {
 

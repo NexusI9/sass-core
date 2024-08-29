@@ -4,7 +4,7 @@
 
 	//Automatically generates unit (--unit-x:4px)
 	@each $name, $value in global.$units{
-		--#{global.$unitName}-#{$name}: $value;
+		--#{global.$unitName}-#{$name}: #{$value};
 	}
 
 	--container-width: global.$containerWidth;
