@@ -32,10 +32,29 @@
 
     &.f-end {
         justify-content: end;
+        align-items: end;
+
+        &-h{
+            align-items: end;
+        }
+
+
+        &-v{
+            justify-content: end;
+        }
     }
 
     &.f-start {
         justify-content: start;
+        align-items: start;
+
+        &-h{
+            align-items: start;
+        }
+
+        &-v{
+            justify-content: start;
+        }
     }
 
     &.f-between {
