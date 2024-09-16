@@ -40,6 +40,10 @@ $styles: (
                 border-radius: var(--unit-#{$name});
             }
         }
+
+        &-max{
+            border-radius: 100vmax; 
+        }
     }
 
     //independant border
